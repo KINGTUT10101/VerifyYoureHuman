@@ -14,7 +14,7 @@ local function showWebBg (x, y, w, h)
 
     -- Background
     tux.show.label ({
-        slices = slices.webBg
+        slices = slices.webLbl
     }, x, y, w, h)
 end
 

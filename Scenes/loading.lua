@@ -12,23 +12,22 @@ local rotationPerSec = 3 * math.pi / 2
 
 local loadingText = "Loading"
 
-local maxLoadTimer = 1.5
-local loadTimer = maxLoadTimer
+local loadTimer = 0
 
 function thisScene:load (...)
     sceneMan = ...
     
 end
 
-function thisScene:whenAdded (...)
+function thisScene:whenAdded (timer, ...)
     scenesToAdd = {...}
-    loadTimer = maxLoadTimer
+    loadTimer = 0.1 --timer
     loadingText = "Loading"
 end
 
 function thisScene:update (dt)
     -- Update timer
-    -- loadTimer = loadTimer - dt
+    loadTimer = loadTimer - dt
     if loadTimer <= 0 then
         sceneMan:clearStack ()
 
@@ -48,14 +47,14 @@ function thisScene:update (dt)
             loadingText = "Loading"
         end
     end
+    
+    showWebBg (0, 0, 800, 600)
 end
 
 function thisScene:draw ()
     -- Background
     -- love.graphics.setColor (0.80, 0.90, 0.85, 1)
     -- love.graphics.rectangle ("fill", 0, 0, 800, 600)
-
-    showWebBg (0, 0, 800, 600)
 
     -- Spinner
     love.graphics.setColor (1, 1, 1, 1)

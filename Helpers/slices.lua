@@ -14,7 +14,8 @@ end
 local slices = {
     launcherLbl = loadSlices ("Graphics/Slices/LauncherLbl"),
     launcherBtn = loadSlices ("Graphics/Slices/LauncherBtn"),
-    webBg = loadSlices ("Graphics/Slices/WebBg")
+    webLbl = loadSlices ("Graphics/Slices/WebLbl"),
+    webBtn = loadSlices ("Graphics/Slices/WebBtn"),
 }
 
 return slices

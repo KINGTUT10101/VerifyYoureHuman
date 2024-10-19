@@ -82,7 +82,7 @@ function thisScene:update (dt)
         fsize = 22,
     }, 30, 222, 188, 50) == "end" then
         sceneMan:clearStack ()
-        sceneMan:push ("loading", "email")
+        sceneMan:push ("loading", 1.5, "email")
     end
 
     -- PFP logo
