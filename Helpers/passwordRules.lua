@@ -72,7 +72,6 @@ local passwordRules = {
         error = "Password cannot contain any numbers divisible by 3.",
         rule = function(password)
             for digit in password:gmatch("%d") do
-                print (tonumber(digit) % 3 == 0, tonumber(digit), tonumber(digit) % 3)
                 if tonumber(digit) ~= 0 and tonumber(digit) % 3 == 0 then
                     return false
                 end

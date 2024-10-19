@@ -639,7 +639,6 @@ function tux.utils.setDefaultFont (fontid)
 
     tux.core.processFont (fontid, tux.defaultFontSize)
     tux.defaultFont = fontid
-    print ("Set default:", tux.defaultFont)
 end
 
 function tux.utils.setDefaultFontSize (fsize)

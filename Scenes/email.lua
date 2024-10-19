@@ -113,7 +113,7 @@ function thisScene:update (dt)
         text = "Submit",
         fsize = 20,
         slices = slices.webBtn
-    }, 335, 444, 144, 46) == "start" then
+    }, 335, 444, 144, 46) == "end" then
         if isValidEmail (emailData.text) == false then
             emailError = "Provided email is invalid!"
 

@@ -23,6 +23,7 @@ function thisScene:whenAdded (...)
 end
 
 function thisScene:update (dt)
+    -- Title
     tux.show.label ({
         text = "Please enter a safe password",
         colors = {0, 0, 0, 0},
@@ -56,7 +57,7 @@ function thisScene:update (dt)
         text = "Submit",
         fsize = 20,
         slices = slices.webBtn
-    }, 335, 335, 144, 46) == "start" then
+    }, 335, 335, 144, 46) == "end" then
         for key, ruleData in ipairs (passwordRules) do
             local result = ruleData.rule (passwordData.text)
 
@@ -84,7 +85,7 @@ function thisScene:keypressed (key, scancode, isrepeat)
     if DevMode == true then
         if key == "backspace" then
             sceneMan:clearStack ()
-            sceneMan:push ("captcha", 2.5, "captcha")
+            sceneMan:push ("loading", 2.5, "captcha")
         end
     end
 end
