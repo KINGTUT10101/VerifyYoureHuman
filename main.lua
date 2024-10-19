@@ -56,9 +56,11 @@ function love.load ()
     sceneMan:newScene ("launcher", require ("Scenes.launcher"))
     sceneMan:newScene ("loading", require ("Scenes.loading"))
     sceneMan:newScene ("email", require ("Scenes.email"))
+    sceneMan:newScene ("password", require ("Scenes.password"))
+    sceneMan:newScene ("captcha", require ("Scenes.captcha"))
 
     -- Enter first scene
-    sceneMan:push ("launcher")
+    sceneMan:push ("captcha")
 end
 
 
