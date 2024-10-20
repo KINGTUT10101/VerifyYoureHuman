@@ -16,6 +16,7 @@ local slices = {
     launcherBtn = loadSlices ("Graphics/Slices/LauncherBtn"),
     webLbl = loadSlices ("Graphics/Slices/WebLbl"),
     webBtn = loadSlices ("Graphics/Slices/WebBtn"),
+    popupAd = loadSlices ("Graphics/Slices/PopupAd"),
 }
 
 return slices
