@@ -65,10 +65,11 @@ function love.load ()
     sceneMan:newScene ("tacoMia", require ("Scenes.tacoMia"))
     sceneMan:newScene ("pinnyIntro", require ("Scenes.pinnyIntro"))
     sceneMan:newScene ("personalQuestions", require ("Scenes.personalQuestions"))
+    sceneMan:newScene ("serversDown", require ("Scenes.serversDown"))
     -- sceneMan:newScene ("calibrate", require ("Scenes.calibrate"))
 
     -- Enter first scene
-    sceneMan:push ("tacoMia")
+    sceneMan:push ("serversDown")
 end
 
 
