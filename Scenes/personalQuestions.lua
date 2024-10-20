@@ -43,8 +43,14 @@ function thisScene:update (dt)
 
             questionIndex = questionIndex + 1
 
-            sceneMan:clearStack ()
-            sceneMan:push ("loading", 1, "personalQuestions")
+            if questionIndex > #questions then
+                questionIndex = 1
+                sceneMan:clearStack ()
+                sceneMan:push ("loading", 3, "pinnyEvil")
+            else
+                sceneMan:clearStack ()
+                sceneMan:push ("loading", 1, "personalQuestions")
+            end
         end
     end
 
@@ -64,7 +70,12 @@ function thisScene:draw ()
 end
 
 function thisScene:keypressed (key, scancode, isrepeat)
-	
+    if DevMode == true then
+        if key == "delete" then
+            sceneMan:clearStack ()
+            sceneMan:push ("loading", 3, "pinnyEvil")
+        end
+    end
 end
 
 function thisScene:mousereleased (x, y, button)
