@@ -21,8 +21,13 @@ end
 
 function thisScene:whenAdded (timer, ...)
     scenesToAdd = {...}
-    loadTimer = 0.1 --timer
     loadingText = "Loading"
+
+    if DevMode == true then
+        loadTimer = 0.1
+    else
+        loadTimer = timer
+    end
 end
 
 function thisScene:update (dt)

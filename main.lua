@@ -58,9 +58,16 @@ function love.load ()
     sceneMan:newScene ("email", require ("Scenes.email"))
     sceneMan:newScene ("password", require ("Scenes.password"))
     sceneMan:newScene ("captcha", require ("Scenes.captcha"))
+    sceneMan:newScene ("captchaFailed", require ("Scenes.captchaFailed"))
+    sceneMan:newScene ("verifyInfo", require ("Scenes.verifyInfo"))
+    sceneMan:newScene ("verifyLigma", require ("Scenes.verifyLigma"))
+    sceneMan:newScene ("closeAds", require ("Scenes.closeAds"))
+    sceneMan:newScene ("pinnyIntro", require ("Scenes.pinnyIntro"))
+    sceneMan:newScene ("personalQuestions", require ("Scenes.personalQuestions"))
+    -- sceneMan:newScene ("calibrate", require ("Scenes.calibrate"))
 
     -- Enter first scene
-    sceneMan:push ("captcha")
+    sceneMan:push ("closeAds")
 end
 
 
@@ -136,6 +143,9 @@ function love.keypressed (key, scancode, isrepeat)
 
             lovelyToasts.show ("Rectangle copied!", 1)
             print ("Rectangle copied!")
+
+        elseif key == "7" then
+            tux.utils.setDebugMode (not tux.utils.getDebugMode ())
         end
     end
 end

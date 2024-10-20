@@ -199,7 +199,7 @@ end
 
 function thisScene:keypressed (key, scancode, isrepeat)
     if DevMode == true then
-        if key == "backspace" then
+        if key == "delete" then
             sceneMan:clearStack ()
             sceneMan:push ("loading", 2.5, "captchaFailed")
         end
