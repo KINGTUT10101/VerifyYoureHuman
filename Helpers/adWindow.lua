@@ -47,6 +47,12 @@ function AdWindow:new (x, y)
     self.tracker[#self.tracker+1] = newObj
 end
 
+function AdWindow:reset ()
+    self.tracker = {}
+    self.adsClicked = 0
+    self.activeAds = 0
+end
+
 function AdWindow:show ()
     self.activeAds = 0
 

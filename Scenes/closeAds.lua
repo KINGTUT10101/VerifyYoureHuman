@@ -10,6 +10,8 @@ local adsAttacking = false
 local showNextButton = false
 local memoryWarningShown = false
 local extremeWarningShown = false
+local hugeWaveWarningShown = false
+local lastWaveWarningShown = false
 local maxAds = 10
 
 function thisScene:load (...)
@@ -108,6 +110,16 @@ function thisScene:draw ()
         love.graphics.setColor (1, 0, 0, 1)
         love.graphics.rectangle ("fill", 75, 543, barW, 28)
 
+        if AdWindow.adsClicked > 25 and hugeWaveWarningShown == false then
+            hugeWaveWarningShown = true
+            lovelyToasts.show ("More ads incoming!", 1)
+        end
+
+        if AdWindow.adsClicked > 50 and lastWaveWarningShown == false then
+            lastWaveWarningShown = true
+            lovelyToasts.show ("Almost there!", 1)
+        end
+
         if memoryWarningShown == false then
             memoryWarningShown = true
             lovelyToasts.show ("Warning: Spike in memory usage detected", 2)
@@ -117,7 +129,13 @@ function thisScene:draw ()
             lovelyToasts.show ("WARNING: REDUCE MEMORY NOW TO AVOID SYSTEM FAILURE", 2)
 
         elseif AdWindow.activeAds >= maxAds then
-            error ("Out of memory :(")
+            lovelyToasts.show ("Out of memory :(. Try again", 2)
+            adsAttacking = false
+            showNextButton = false
+            memoryWarningShown = false
+            extremeWarningShown = false
+            maxAds = 10
+            AdWindow:reset ()
         end
     end
 end
