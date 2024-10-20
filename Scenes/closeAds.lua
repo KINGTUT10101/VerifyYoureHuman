@@ -90,6 +90,8 @@ function thisScene:update (dt)
             slices = slices.webBtn
         }, 367, 468, 104, 45) == "end" then
             adsAttacking = true
+            sceneMan:clearStack ()
+            sceneMan:push ("loading", 2, "closeAds")
         end
     end
     

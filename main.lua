@@ -69,7 +69,7 @@ function love.load ()
     -- sceneMan:newScene ("calibrate", require ("Scenes.calibrate"))
 
     -- Enter first scene
-    sceneMan:push ("serversDown")
+    sceneMan:push ("launcher")
 end
 
 

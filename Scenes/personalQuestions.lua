@@ -42,6 +42,9 @@ function thisScene:update (dt)
             lovelyToasts.show (questions[questionIndex].response, 2, "top")
 
             questionIndex = questionIndex + 1
+
+            sceneMan:clearStack ()
+            sceneMan:push ("loading", 1, "personalQuestions")
         end
     end
 
