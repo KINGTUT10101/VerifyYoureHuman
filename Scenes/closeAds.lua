@@ -72,7 +72,7 @@ function thisScene:update (dt)
                 slices = slices.webBtn
             }, 367, 468, 104, 45) == "end" then
                 sceneMan:clearStack ()
-                sceneMan:push ("loading", 2.5, "pinnyIntro")
+                sceneMan:push ("loading", 2.5, "tacoMia")
             end
         end
 
@@ -124,7 +124,7 @@ function thisScene:keypressed (key, scancode, isrepeat)
     if DevMode == true then
         if key == "delete" then
             sceneMan:clearStack ()
-            sceneMan:push ("loading", 2.5, "pinnyIntro")
+            sceneMan:push ("loading", 2.5, "tacoMia")
         end
     end
 end

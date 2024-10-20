@@ -62,12 +62,13 @@ function love.load ()
     sceneMan:newScene ("verifyInfo", require ("Scenes.verifyInfo"))
     sceneMan:newScene ("verifyLigma", require ("Scenes.verifyLigma"))
     sceneMan:newScene ("closeAds", require ("Scenes.closeAds"))
+    sceneMan:newScene ("tacoMia", require ("Scenes.tacoMia"))
     sceneMan:newScene ("pinnyIntro", require ("Scenes.pinnyIntro"))
     sceneMan:newScene ("personalQuestions", require ("Scenes.personalQuestions"))
     -- sceneMan:newScene ("calibrate", require ("Scenes.calibrate"))
 
     -- Enter first scene
-    sceneMan:push ("closeAds")
+    sceneMan:push ("tacoMia")
 end
 
 
