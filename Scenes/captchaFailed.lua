@@ -5,7 +5,7 @@ local tux = require ("Libraries.tux")
 local push = require ("Libraries.push")
 local showWebBg = require ("Helpers.showWebBg")
 
-local errorText = "Error 503 - Captcha service unavailable. Failed to verify if user is a bot. Clicking submit will redirect you to another verification method."
+local errorText = "Error 503 - Captcha service unavailable. Failed to verify if user is a bot. Clicking confirm will redirect you to another verification method."
 
 function thisScene:load (...)
     sceneMan = ...

@@ -37,7 +37,7 @@ function thisScene:whenAdded (...)
     launcherTheme:play ()
 end
 
-function thisScene:delete (...)
+function thisScene:whenRemoved (...)
     launcherTheme:stop ()
 end
 

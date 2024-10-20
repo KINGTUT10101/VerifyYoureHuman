@@ -7,6 +7,10 @@ local showWebBg = require ("Helpers.showWebBg")
 local nft = require ("Helpers.nft")
 local rectCollider = require ("Helpers.rectCollider")
 
+local attackMusic = love.audio.newSource ("Audio/Music/LOOP_Amidst the Flames.wav", "stream")
+attackMusic:setLooping (true)
+attackMusic:setVolume (0.4)
+
 local pinny = love.graphics.newImage ("Graphics/pinny.png")
 local pinnyPos = {
     x = 100,
@@ -15,7 +19,7 @@ local pinnyPos = {
     h = 300,
 }
 local pinnyScale = 0.75
-local maxPinnyHealth = 1
+local maxPinnyHealth = 25
 local pinnyHealth = maxPinnyHealth
 
 local maxTimer = 30
@@ -30,12 +34,21 @@ end
 
 function thisScene:whenAdded (...)
     lovelyToasts.show ("Now's your chance! Corrupt his mind with popup ads before he hacks you!", 3)
+    attackMusic:play ()
+    
+    pinnyHealth = maxPinnyHealth
+    timer = maxTimer
 end
 
 function thisScene:update (dt)
     -- Update timer
     if timer > 0 then
         timer = timer - dt
+
+    else
+        attackMusic:stop ()
+        sceneMan:clearStack ()
+        sceneMan:push ("loading", 4, "badEnding")
     end
 
     nft:show ()
@@ -54,12 +67,6 @@ function thisScene:update (dt)
         pinnyScale = pinnyScale * 0.95
 
         nft:reset (800 - pinnyPos.x, 600 - pinnyPos.y)
-
-        if math.random () < 0.50 then
-            
-        else
-            
-        end
     end
 
     -- Pinny
@@ -70,6 +77,7 @@ function thisScene:update (dt)
             colors = {0, 0, 0, 0},
         }, pinnyPos.x, pinnyPos.y, 100, 300)
     else
+        attackMusic:stop ()
         sceneMan:clearStack ()
         sceneMan:push ("loading", 4, "pinnyFinal")
     end
@@ -102,6 +110,7 @@ end
 function thisScene:keypressed (key, scancode, isrepeat)
     if DevMode == true then
         if key == "delete" then
+            attackMusic:stop ()
             sceneMan:clearStack ()
             sceneMan:push ("loading", 4, "pinnyFinal")
         end

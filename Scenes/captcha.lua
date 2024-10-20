@@ -148,7 +148,7 @@ function thisScene:update (dt)
                 sceneMan:push ("loading", 2.5, "captchaFailed")
             else
                 sceneMan:clearStack ()
-                sceneMan:push ("loading", 1.5, "captcha")
+                sceneMan:push ("loading", 1, "captcha")
             end
         else
             resetGrid ()

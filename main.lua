@@ -70,10 +70,11 @@ function love.load ()
     sceneMan:newScene ("pinnyFinal", require ("Scenes.pinnyFinal"))
     sceneMan:newScene ("accountCreated", require ("Scenes.accountCreated"))
     sceneMan:newScene ("serversDown", require ("Scenes.serversDown"))
+    sceneMan:newScene ("badEnding", require ("Scenes.badEnding"))
     -- sceneMan:newScene ("calibrate", require ("Scenes.calibrate"))
 
     -- Enter first scene
-    sceneMan:push ("accountCreated")
+    sceneMan:push ("launcher")
 end
 
 

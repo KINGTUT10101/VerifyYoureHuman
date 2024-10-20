@@ -14,6 +14,10 @@ local hugeWaveWarningShown = false
 local lastWaveWarningShown = false
 local maxAds = 10
 
+local attackMusic = love.audio.newSource ("Audio/Music/LOOP_Ambushed from the Shadows.wav", "stream")
+attackMusic:setLooping (true)
+attackMusic:setVolume (0.4)
+
 function thisScene:load (...)
     sceneMan = ...
     
@@ -31,17 +35,17 @@ function thisScene:update (dt)
         if AdWindow.adsClicked > 65 then
             showNextButton = true
         elseif AdWindow.adsClicked > 50 then
-            if math.random () < 0.035 then
+            if math.random () < 0.032 then
                 AdWindow:new (math.random (15, 535), math.random (45, 410))
             end
 
         elseif AdWindow.adsClicked > 25 then
-            if math.random () < 0.030 then
+            if math.random () < 0.028 then
                 AdWindow:new (math.random (15, 535), math.random (45, 410))
             end
 
         elseif AdWindow.adsClicked > 10 then
-            if math.random () < 0.025 then
+            if math.random () < 0.023 then
                 AdWindow:new (math.random (15, 535), math.random (45, 410))
             end
 
@@ -73,6 +77,7 @@ function thisScene:update (dt)
                 fsize = 20,
                 slices = slices.webBtn
             }, 367, 468, 104, 45) == "end" then
+                attackMusic:stop ()
                 sceneMan:clearStack ()
                 sceneMan:push ("loading", 2.5, "tacoMia")
             end
@@ -92,6 +97,7 @@ function thisScene:update (dt)
             slices = slices.webBtn
         }, 367, 468, 104, 45) == "end" then
             adsAttacking = true
+            attackMusic:play ()
             sceneMan:clearStack ()
             sceneMan:push ("loading", 2, "closeAds")
         end
@@ -143,6 +149,7 @@ end
 function thisScene:keypressed (key, scancode, isrepeat)
     if DevMode == true then
         if key == "delete" then
+            attackMusic:stop ()
             sceneMan:clearStack ()
             sceneMan:push ("loading", 2.5, "tacoMia")
         end

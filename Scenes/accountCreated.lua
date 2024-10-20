@@ -33,7 +33,7 @@ function thisScene:update (dt)
 
     -- Confirm
     if tux.show.button ({
-        text = "Confirm",
+        text = "Sign in",
         fsize = 20,
         slices = slices.webBtn
     }, 335, 450, 144, 46) == "end" then
